@@ -11,6 +11,10 @@ void outputArrayData(double*);
 double sumArray(double*);
 
 int main() {
+    double* dArray = nullptr;
+    dArray = new double[SIZE];
+
+    enterArrayData(dArray);
 
     return 0;
 }
@@ -21,7 +25,13 @@ void enterArrayData(double *arr)
     // enterArrayData() populates the array with values that the user enters via the console
     // arguments: the dynamic double array
     // returns: none
-
+    cout << "Data entry for the array:\n";
+    for (int i = 0; i < SIZE; i++)
+    {
+        cout << "\t> Element #" << i << ": ";
+        cin >> *(arr + i);
+    }
+    cout << "Data entry complete.\n";
 }
 
 void outputArrayData(double *arr)
@@ -29,7 +39,12 @@ void outputArrayData(double *arr)
     // outputArrayData() outputs  the array's contents on one line
     // arguments: the dynamic double array
     // returns: none
-
+    cout << "Outputting array elements: ";
+    for (int i = 0; i < SIZE; i++)
+    {
+        cout << *(arr + i) << " ";
+    }
+    cout << endl;
 }
 
 double sumArray(double *arr)
