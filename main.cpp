@@ -7,8 +7,8 @@ const int SIZE = 5;
 
 //Function prototype
 void enterArrayData(double * );
-void outputArrayData(double * );
-double sumArray(double * );
+void outputArrayData(const double * );
+double sumArray(const double * );
 
 int main() {
     double * dArray = nullptr;
@@ -17,9 +17,11 @@ int main() {
     //Function calls
     enterArrayData(dArray);
     outputArrayData(dArray);
-    cout << "Sum of values: " << sumArray(dArray);
+    cout << "Sum of values: " << sumArray(dArray) << endl;
 
+    // Release the dynamically allocated memory.
     delete[] dArray;
+    dArray = nullptr;
 
     return 0;
 }
@@ -37,7 +39,7 @@ void enterArrayData(double * arr) {
     cout << "Data entry complete.\n";
 }
 
-void outputArrayData(double * arr) {
+void outputArrayData(const double * arr) {
     // outputArrayData() outputs  the array's contents on one line
     // arguments: the dynamic double array
     // returns: none
@@ -48,7 +50,7 @@ void outputArrayData(double * arr) {
     cout << endl;
 }
 
-double sumArray(double * arr) {
+double sumArray(const double * arr) {
     // sumArray() both calculates and returns the array's sum
     // arguments: the dynamic double array
     // returns: the sum
